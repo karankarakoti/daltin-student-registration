@@ -1,0 +1,15 @@
+{
+  "short_name": "Student Registration",
+  "name": "Student Registration",
+  "icons": [
+    {
+      "src": "favicon.png",
+      "type": "image/png",
+      "sizes": "1080x414"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#25529e",
+  "background_color": "#ffffff"
+}
