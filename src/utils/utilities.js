@@ -7,3 +7,7 @@ export const scrollToTop = (window) =>{
 export const generatePublicURL = (file) => {
   return `${apiConfig.MEDIA_URL}/${file}`;
 }
+
+export const formatName = (title, firstName, middleName, lastName) => {
+  return `${title} ${firstName} ${middleName ? middleName : ""} ${lastName}`;
+}
