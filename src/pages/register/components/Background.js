@@ -16,13 +16,15 @@ export const Background = ({
 
   const onSubmit = async (values, { setSubmitting }) => {            
     setSubmitting(true);
+    const { visaRejected } = values;
+    if(typeof visaRejected === "string") values.visaRejected = visaRejected === "true" ? true : false;
     setData({
       ...data,
       background: values
     });    
     handleNext();
     setSubmitting(false);
-  }
+  }  
 
   return (
     <>
@@ -63,7 +65,10 @@ export const Background = ({
                         label="Visa Rejected?"
                         value={values.visaRejected}
                         onChange={(e) => setFieldValue("visaRejected", e.target.value)}                        
-                        options={[{ value: true, label: "Yes" }, { value: false, label: "No" }]}
+                        options={[
+                          { value: true, label: "Yes" },
+                          { value: false, label: "No" }
+                        ]}
                         touched={touched.visaRejected}
                         errors={errors.visaRejected}
                         info="Did you face any visa rejection in the past?"

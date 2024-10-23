@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 import moment from "moment";
+import { useDispatch, useSelector } from "react-redux";
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 
 import { ApplicationDetails, ConfirmationDialog } from "components";
+import { registerStudent } from "redux/actions";
 import { formatName, generatePublicURL } from "utils/utilities";
 
 export const Review = ({
@@ -12,7 +14,25 @@ export const Review = ({
 }) => {
 
   const { personal, address, academic, education, background, documents } = data;
+  const dispatch = useDispatch();
+  const { loading } = useSelector(state => state.app);
   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
+
+  const handleSubmit = () => {
+    let form = {
+      personal,
+      address,
+      academic,
+      education,
+      background,
+      documents: documents.map(item => ({ 
+        label: item.label, 
+        value: item.value,
+        url: item.url,
+      }))
+    }
+    dispatch(registerStudent(form));
+  }
 
   return (
     <>
@@ -82,6 +102,7 @@ export const Review = ({
                 type="submit"
                 sx={{ mt: 3, ml: 1 }}    
                 onClick={() => setShowConfirmationDialog(true)}          
+                disabled={loading}
               >
                 Submit Application
               </Button>
@@ -98,7 +119,7 @@ export const Review = ({
         open={showConfirmationDialog}
         handleClose={() => setShowConfirmationDialog(false)}        
         handleConfirm={() => {
-          // Submit the application          
+          handleSubmit();
           setShowConfirmationDialog(false);
         }}        
       />    
