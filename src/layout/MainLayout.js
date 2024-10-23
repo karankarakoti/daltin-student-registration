@@ -27,7 +27,7 @@ export const MainLayout = () => {
       <AppBar
         position="fixed"
         color="default"
-        elevation={1}
+        // elevation={1}
         sx={{          
           borderBottom: (t) => `1px solid ${t.palette.divider}`,
           top: 0,

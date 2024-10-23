@@ -14,8 +14,8 @@ export const ConfirmationDialog = ({
     <Dialog
       open={open}
       onClose={handleClose}
-    aria-labelledby="alert-dialog-title"
-    aria-describedby="alert-dialog-description"
+      aria-labelledby="alert-dialog-title"
+      aria-describedby="alert-dialog-description"
     >
       <DialogTitle id="alert-dialog-title">
         {title}
