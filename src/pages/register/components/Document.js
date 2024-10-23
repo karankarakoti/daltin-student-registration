@@ -55,7 +55,7 @@ export const Document = ({
                   docs: Yup.array().of(
                     Yup.object().shape({
                       file: Yup.mixed().required("File is required"),
-                      url: Yup.string().required("File is required"),
+                      url: Yup.string().required("Please Upload the Document"),
                       label: Yup.string().required("Label is required"),
                       value: Yup.string().required("Value is required"),
                     })

@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-import { AppBar, Box, Button, Container, CssBaseline, MobileStepper, Paper, Stack, Step, StepLabel, Stepper, Toolbar, Typography } from "@mui/material";
+import { Box, Button, Container, CssBaseline, MobileStepper, Paper, Step, StepLabel, Stepper, Typography } from "@mui/material";
 
-import { BottomAppBar, Copyright, LinkWrapper } from "components";
+import { BottomAppBar, Copyright } from "components";
 import { Academic, Address, Background, Document, Education, Personal, Review } from "./components";
 
 const steps = [
@@ -55,7 +55,7 @@ const Register = () => {
       { label: "Passport", value: "passport", required: true, type: ["PDF", "JPG", "PNG"], maxSize: 1, file: null, url: "" },
     ]
   });  
-
+  
   const handleNext = () => {
     if(activeStep < steps.length - 1) setActiveStep(activeStep + 1);
     else  return;    
@@ -138,56 +138,12 @@ const Register = () => {
 
   return (
     <>
-      <CssBaseline />
-      <AppBar
-        position="fixed"
-        color="default"
-        elevation={1}
-        sx={{          
-          borderBottom: (t) => `1px solid ${t.palette.divider}`,
-          top: 0,
-          left: 0,
-          backgroundColor: "#efefef",
-        }}
-      >
-        <Toolbar
-          sx={{
-            height: "100%",
-          }}
-        >          
-          <Stack
-            direction="row"
-            spacing={1}
-            alignItems="center"
-            justifyContent="center"
-            sx={{
-              height: "100%",
-              width: "100%",
-            }}
-          >
-            <LinkWrapper
-              url="/"
-            >
-              <Box
-                height={"48px"}
-                width={"144px"}
-              >
-                <img
-                  src="/favicon.png"
-                  alt="DALTIN AI"
-                  style={{ width: "100%", height: "100%", objectFit: "contain" }}
-                />
-              </Box>                              
-            </LinkWrapper>
-          </Stack>
-        </Toolbar>
-      </AppBar>
+      <CssBaseline />      
       <Container 
         component="main" 
         maxWidth="md" 
         sx={{ 
-          mb: 4, 
-          pt: "56px",
+          mb: 4,
           pb: { xs: "80px", md: 0 },
         }}
       >
