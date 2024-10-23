@@ -8,7 +8,7 @@ import { Box, Button, CircularProgress, Collapse, FormHelperText, Grid, Stack, T
 
 import { AppInputSelect, LinkWrapper } from "components";
 import Axios from "utils/axios";
-import { generatePublicURL } from "utils/utilities";
+import { generatePublicURL, scrollToTop } from "utils/utilities";
 
 const docs = [
   { label: "10th Marksheet", value: "10th", required: true, type: ["PDF", "JPG", "PNG"], maxSize: 1 },
@@ -29,6 +29,10 @@ export const Document = ({
   data,
   setData
 }) => {
+
+  useEffect(() => {
+    scrollToTop(window);
+  }, []);
 
   const onSubmit = async (values, { setSubmitting }) => {            
     setSubmitting(true);    

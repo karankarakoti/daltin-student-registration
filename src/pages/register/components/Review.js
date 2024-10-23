@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import moment from "moment";
 import { useDispatch, useSelector } from "react-redux";
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
@@ -6,6 +6,7 @@ import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 import { ApplicationDetails, ConfirmationDialog } from "components";
 import { registerStudent } from "redux/actions";
 import { formatName, generatePublicURL } from "utils/utilities";
+import { scrollToTop } from "utils/utilities";
 
 export const Review = ({
   activeStep,
@@ -17,6 +18,10 @@ export const Review = ({
   const dispatch = useDispatch();
   const { loading } = useSelector(state => state.app);
   const [showConfirmationDialog, setShowConfirmationDialog] = useState(false);
+
+  useEffect(() => {
+    scrollToTop(window);
+  }, []);
 
   const handleSubmit = () => {
     let form = {

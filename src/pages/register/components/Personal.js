@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import dayjs from "dayjs";
 import { Formik } from "formik";
 import * as Yup from "yup";
@@ -6,6 +6,7 @@ import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 
 import { AppInput, AppInputDate, AppInputSelect } from "components";
 import { Genders, MartialStatus, Titles } from "utils/constant-data";
+import { scrollToTop } from "utils/utilities";
 
 export const Personal = ({
   activeStep,
@@ -15,6 +16,10 @@ export const Personal = ({
   data,
   setData
 }) => {
+
+  useEffect(() => {
+    scrollToTop(window);
+  }, []);
 
   const onSubmit = async (values, { setSubmitting }) => {            
     setSubmitting(true);    

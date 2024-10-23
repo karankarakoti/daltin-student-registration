@@ -5,6 +5,7 @@ import * as Yup from "yup";
 import { Box, Button, Collapse, Grid, Stack, Typography } from "@mui/material";
 
 import { AppInput, AppInputSelect, AutocompleteSelect } from "components";
+import { scrollToTop } from "utils/utilities";
 
 export const Academic = ({
   activeStep,
@@ -18,6 +19,7 @@ export const Academic = ({
   const [countriesList, setCountriesList] = useState([]);
 
   useEffect(() => {
+    scrollToTop(window);
     GetCountries().then((result) => {
       setCountriesList(result);
     });    

@@ -1,9 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import { Box, Button, Grid, Stack, Typography } from "@mui/material";
 
 import { AppInputRadio, AppInputSelect } from "components";
+import { scrollToTop } from "utils/utilities";
 
 export const Background = ({
   activeStep,
@@ -13,6 +14,10 @@ export const Background = ({
   data,
   setData
 }) => {
+
+  useEffect(() => {
+    scrollToTop(window);
+  }, []);
 
   const onSubmit = async (values, { setSubmitting }) => {            
     setSubmitting(true);

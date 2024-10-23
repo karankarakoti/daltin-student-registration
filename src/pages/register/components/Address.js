@@ -7,6 +7,7 @@ import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Accordion, AccordionDetails, AccordionSummary, Box, Button, Grid, Stack, Typography } from "@mui/material";
 
 import { AppInputDate, AppInput, AutocompleteSelect } from "components";
+import { scrollToTop } from "utils/utilities";
 
 export const Address = ({
   activeStep,
@@ -22,6 +23,7 @@ export const Address = ({
   const [cityList, setCityList] = useState([]);
 
   useEffect(() => {
+    scrollToTop(window);
     GetCountries().then((result) => {
       setCountriesList(result);
     });    
