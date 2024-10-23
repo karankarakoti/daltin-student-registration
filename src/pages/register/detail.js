@@ -7,7 +7,7 @@ import { Box, Button, Container, Paper, Stack, Typography } from "@mui/material"
 
 import { ApplicationDetails, CongratulationDialog } from "components";
 import { getApplicationDetails } from "redux/actions";
-import { formatName, generatePublicURL } from "utils/utilities";
+import { formatName, generatePublicURL, scrollToTop } from "utils/utilities";
 
 const RegisterDetail = () => {
 
@@ -20,6 +20,10 @@ const RegisterDetail = () => {
   const printRef = useRef();
 
   const [ showCongratulation, setShowCongratulation ] = useState(success === "true" ? true : false);
+
+  useEffect(() => {
+    scrollToTop(window);
+  }, []);
 
   useEffect(() => {
     dispatch(getApplicationDetails(id));

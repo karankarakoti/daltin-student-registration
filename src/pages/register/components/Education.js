@@ -6,6 +6,7 @@ import { DeleteOutline } from "@mui/icons-material";
 import { Box, Button, Collapse, Grid, Stack, Typography } from "@mui/material";
 
 import { AppInput, AutocompleteSelect } from "components";
+import { scrollToTop } from "utils/utilities";
 
 export const Education = ({
   activeStep,
@@ -19,6 +20,7 @@ export const Education = ({
   const [countriesList, setCountriesList] = useState([]);
 
   useEffect(() => {
+    scrollToTop(window);
     GetCountries().then((result) => {
       setCountriesList(result);
     });    
